@@ -30,7 +30,8 @@ app.get('/products', async (req,res) => {
 
 // CREATE a new product
 app.get('/products/new', (req, res) => {
-    res.render('products/new');
+    const categories = Product.schema.path('category').enumValues;
+    res.render('products/new', { categories });
 });
 
 app.post('/products', async (req, res) => {
@@ -50,13 +51,14 @@ app.get('/products/:id', async (req, res) => {
 app.get('/products/:id/edit', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id);
-    res.render('products/edit', { product });
+    const categories = Product.schema.path('category').enumValues;
+    res.render('products/edit', { product, categories });
 });
 
 app.put('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findByIdAndUpdate(id, req.body, 
-                            { runValidators: true, new:true})
+                            { runValidators: true, new:true});
     res.redirect(`/products/${ product._id }`);
 });
 

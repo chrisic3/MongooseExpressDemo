@@ -14,9 +14,10 @@
         <input type="number" name="price" id="price" value="<%= product.price %>">
         <label for="category">Category</label>
         <select name="category" id="category">
-            <option value="Dairy">Dairy</option>
-            <option value="Fruit">Fruit</option>
-            <option value="Vegetable">Vegetable</option>
+            <% for (let category of categories) { %>
+                <option value="<%= category %>" <%= (product.category === 
+                    category) ? 'selected' : '' %>><%= category %></option>
+            <% } %>
         </select>
         <button>Submit</button>
     </form>
