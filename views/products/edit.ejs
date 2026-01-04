@@ -11,7 +11,8 @@
         <label for="name">Product Name</label>
         <input type="text" name="name" id="name" value="<%= product.name %>">
         <label for="price">Price Per Unit</label>
-        <input type="number" name="price" id="price" value="<%= product.price %>">
+        <input type="number" name="price" id="price" value="<%= product.price %>" 
+            step=".01">
         <label for="category">Category</label>
         <select name="category" id="category">
             <% for (let category of categories) { %>
