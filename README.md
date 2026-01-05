@@ -1,4 +1,4 @@
-##Mongoose and Express Demo
+## Mongoose and Express Demo
 
 This app is a demo of using Mongoose in an Express app.
 
